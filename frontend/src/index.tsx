@@ -8,14 +8,14 @@ import "@fontsource/roboto/400.css"
 import "@fontsource/roboto/500.css"
 import "@fontsource/roboto/700.css"
 
-import { Layout } from "./pages/Layout"
-import { Home } from "./pages/Home"
-import { TestFingerprint } from "./pages/TestFingerprint"
-import { TestAES } from "./pages/TestAES"
-import { TestRSA_Single } from "./pages/TestRSA/Single"
-import { TestRSA_WithBackend } from "./pages/TestRSA/WithBackend"
-import { TestRSA_ManualEncryption } from "./pages/TestRSA/ManualEncryption"
-import { TestRSA_ManualDecryption } from "./pages/TestRSA/ManualDecryption"
+import { Layout } from "./_tests/Layout"
+import { Home } from "./_tests/Home"
+import { TestFingerprint } from "./_tests/TestFingerprint"
+import { TestAES } from "./_tests/TestAES"
+import { TestRSA_Single } from "./_tests/TestRSA/Single"
+import { TestRSA_WithBackend } from "./_tests/TestRSA/WithBackend"
+import { TestRSA_ManualEncryption } from "./_tests/TestRSA/ManualEncryption"
+import { TestRSA_ManualDecryption } from "./_tests/TestRSA/ManualDecryption"
 
 const routes = [
   {
