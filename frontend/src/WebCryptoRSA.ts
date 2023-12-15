@@ -25,9 +25,10 @@ export class WebCryptoRSA implements IWebCryptoRSA {
     return toBase64(bytes)
   }
   
-  async encrypt2(data: string, publicKey: string) {
+  async encrypt2(plainData: string, publicKey: Base64String) {
     const publicKeyCryptoKey = await importPublicKey(publicKey)
-    return await this.encrypt(data, publicKeyCryptoKey)
+    console.debug(publicKeyCryptoKey)
+    return await this.encrypt(plainData, publicKeyCryptoKey)
   }
   
   // ENCRYPT: string > bytes > encrypt > bytes > Base64

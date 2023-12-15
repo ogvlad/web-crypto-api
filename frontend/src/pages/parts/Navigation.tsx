@@ -25,9 +25,10 @@ export const Navigation = (props: any) => {
       <NavButton onClick={() => navigate("/")} text={"Home"} icon={<HomeIcon />} />
       <NavButton onClick={() => navigate("/fingerprint")} text={"Fingerprint"} icon={<FingerprintIcon />} />
       <NavButton onClick={() => navigate("/aes")} text={"AES Process"} icon={<LockOpenRoundedIcon />} />
-      <NavButton onClick={() => navigate("/rsa-single")} text={"RSA Process"} icon={<VpnKeyIcon />} />
+      <NavButton onClick={() => navigate("/rsa-single")} text={"RSA Auto"} icon={<VpnKeyIcon />} />
+      <NavButton onClick={() => navigate("/rsa-manual-encryption")} text={"RSA Encrypt"} icon={<VpnKeyIcon />} />
+      <NavButton onClick={() => navigate("/rsa-manual-decryption")} text={"RSA Decrypt"} icon={<VpnKeyIcon />} />
       <NavButton onClick={() => navigate("/rsa-backend")} text={"RSA With Backend"} icon={<VpnKeyIcon />} />
-      <NavButton onClick={() => navigate("/rsa-manual")} text={"RSA Manual"} icon={<VpnKeyIcon />} />
     </List>
   )
 }
