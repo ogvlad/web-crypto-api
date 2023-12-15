@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-// import { useHistory } from "react-router-dom"
+import React from "react"
+import { useNavigate } from "react-router-dom"
 
 import Box from "@mui/material/Box"
 import BottomNavigation from "@mui/material/BottomNavigation"
@@ -15,20 +15,16 @@ const drawerWidth = 240
 
 export const Navigation = (props: any) => {
   const { drawerOpen, handleDrawerToggle } = props
+  const navigate = useNavigate()
   
-  // const history = useHistory()
   const [value, setValue] = React.useState(0)
   
-  const navigate = (url: string) => {
-    // history.push(url)
-  }
   
   return (
     <List>
       <NavButton onClick={() => navigate("/")} text={"Home"} icon={<HomeIcon />} />
       <NavButton onClick={() => navigate("/fingerprint")} text={"Fingerprint"} icon={<FingerprintIcon />} />
       <NavButton onClick={() => navigate("/aes")} text={"AES Process"} icon={<LockOpenRoundedIcon />} />
-      <NavButton onClick={() => navigate("/rsa")} text={"RSA Keys"} icon={<KeyIcon />} />
       <NavButton onClick={() => navigate("/rsa-single")} text={"RSA Process"} icon={<VpnKeyIcon />} />
       <NavButton onClick={() => navigate("/rsa-backend")} text={"RSA With Backend"} icon={<VpnKeyIcon />} />
       <NavButton onClick={() => navigate("/rsa-manual")} text={"RSA Manual"} icon={<VpnKeyIcon />} />

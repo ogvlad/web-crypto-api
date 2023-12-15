@@ -16,39 +16,48 @@ import { TestRSA_Single } from "./pages/TestRSA/Single"
 import { TestRSA_WithBackend } from "./pages/TestRSA/WithBackend"
 import { TestRSA_Manual } from "./pages/TestRSA/Manual"
 
+
+const routes = [
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "",
+        element: <Home />
+      },
+      {
+        path: "fingerprint",
+        element: <TestFingerprint />
+      },
+      {
+        path: "aes",
+        element: <TestAES />
+      },
+      {
+        path: "rsa-single",
+        element: <TestRSA_Single />
+      },
+      {
+        path: "rsa-backend",
+        element: <TestRSA_WithBackend />
+      },
+      {
+        path: "rsa-manual",
+        element: <TestRSA_Manual />
+      },
+    ]
+  }
+]
+
+const router = createBrowserRouter(routes, { basename: "/" })
+
 const App = () => {
   
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />
-    },
-    {
-      path: "/fingerprint",
-      element: <TestFingerprint />
-    },
-    {
-      path: "/aes",
-      element: <TestAES />
-    },
-    {
-      path: "/rsa-single",
-      element: <TestRSA_Single />
-    },
-    {
-      path: "/rsa-backend",
-      element: <TestRSA_WithBackend />
-    },
-    {
-      path: "/rsa-manual",
-      element: <TestRSA_Manual />
-    },
-  ])
-  
   return (
-    <Layout>
+    <React.StrictMode>
       <RouterProvider router={router} />
-    </Layout>
+    </React.StrictMode>
   )
 }
 

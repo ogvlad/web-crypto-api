@@ -1,4 +1,6 @@
 import React, { PropsWithChildren } from "react"
+import { Outlet  } from "react-router-dom";
+
 import { styled } from "@mui/material"
 
 import { Navigation } from "./parts/Navigation"
@@ -48,7 +50,7 @@ export function Layout(props: PropsWithChildren<any>) {
       </Sidebar>
       
       <Content>
-        {children}
+        <Outlet />
       </Content>
       
       <Footer>
