@@ -47,9 +47,11 @@ export class WebCryptoRSA implements IWebCryptoRSA {
     return new TextDecoder().decode(bytes)
   }
   
-  decrypt2(encryptedData: Base64String, privateKey: Base64String): Promise<string> {
-    const dataBuffer = fromBase64(encryptedData)
-    return Promise.resolve("TODO")
+  async decrypt2(encryptedData: Base64String, privateKey: Base64String): Promise<string> {
+    const publicKeyCryptoKey = await importPrivateKey(privateKey)
+    console.debug("Private Key decoded")
+    console.debug({publicKeyCryptoKey})
+    return this.decrypt(encryptedData, publicKeyCryptoKey)
   }
 }
 
@@ -200,5 +202,20 @@ function importPublicKey(publicKeyText: Base64String): Promise<CryptoKey> {
     },
     true,
     ["encrypt"]
+  )
+}
+
+function importPrivateKey(privateKeyText: Base64String): Promise<CryptoKey> {
+  const buffer = fromBase64(privateKeyText)
+  
+  return window.crypto.subtle.importKey(
+    "pkcs8",
+    buffer,
+    {
+      name: "RSA-OAEP",
+      hash: "SHA-256",
+    },
+    true,
+    ["decrypt"]
   )
 }

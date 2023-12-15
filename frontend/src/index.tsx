@@ -14,8 +14,8 @@ import { TestFingerprint } from "./pages/TestFingerprint"
 import { TestAES } from "./pages/TestAES"
 import { TestRSA_Single } from "./pages/TestRSA/Single"
 import { TestRSA_WithBackend } from "./pages/TestRSA/WithBackend"
-import { TestRSA_Manual } from "./pages/TestRSA/Manual"
-
+import { TestRSA_ManualEncryption } from "./pages/TestRSA/ManualEncryption"
+import { TestRSA_ManualDecryption } from "./pages/TestRSA/ManualDecryption"
 
 const routes = [
   {
@@ -39,12 +39,16 @@ const routes = [
         element: <TestRSA_Single />
       },
       {
-        path: "rsa-backend",
-        element: <TestRSA_WithBackend />
+        path: "rsa-manual-encryption",
+        element: <TestRSA_ManualEncryption />
       },
       {
-        path: "rsa-manual",
-        element: <TestRSA_Manual />
+        path: "rsa-manual-decryption",
+        element: <TestRSA_ManualDecryption />
+      },
+      {
+        path: "rsa-backend",
+        element: <TestRSA_WithBackend />
       },
     ]
   }
