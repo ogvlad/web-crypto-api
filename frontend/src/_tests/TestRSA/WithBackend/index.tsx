@@ -58,6 +58,12 @@ export const TestRSA_WithBackend = () => {
                 <FullWidthTextarea maxRows={14} minRows={8} value={state?.keyPair && state?.keyPair.publicKeyBase64} />
               </TableCell>
             </TableRow>
+            <TableRow>
+              <TableCell>Private Key Base64</TableCell>
+              <TableCell>
+                <FullWidthTextarea maxRows={14} minRows={8} value={state?.keyPair && state?.keyPair.privateKeyBase64} />
+              </TableCell>
+            </TableRow>
 
             <TableRow>
               <TableCell>Encrypted Message</TableCell>

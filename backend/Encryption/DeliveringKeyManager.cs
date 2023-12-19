@@ -6,7 +6,7 @@ namespace SandboxAPI.Encryption
 {
     public sealed class DeliveringKeyManager
     {
-        const int RsaKeySize = 1024;
+        const int RsaKeySize = 2048;
         const string TextToEncrypt = "A quick brown fox jumps over the lazy dog";
 
         public static DeliveringKeyModel GetEncryptedKey_Binary(Request request)
@@ -30,11 +30,8 @@ namespace SandboxAPI.Encryption
         {
             var data = Encoding.UTF8.GetBytes(TextToEncrypt);
 
-            var encryptKey = string.Concat("<RSAKeyValue><Modulus>", request.publicKeyBase64,
-                "</Modulus><Exponent>Aw==</Exponent></RSAKeyValue>");
-
             using RSACryptoServiceProvider provider = new RSACryptoServiceProvider(RsaKeySize);
-            provider.FromXmlString(encryptKey);
+            provider.FromXmlString(request.publicKeyXml);
             var encryptedBytes = provider.Encrypt(data, true);
             string encryptedText = Convert.ToBase64String(encryptedBytes);
 

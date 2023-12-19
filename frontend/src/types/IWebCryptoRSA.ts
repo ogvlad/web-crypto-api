@@ -14,5 +14,6 @@ export interface IRSAKeyPair {
   privateKeyBase64: Base64String
   publicKey: CryptoKey
   publicKeyBase64: Base64String
+  publicKeyXml: string
   // publickKeyPem: string
 }

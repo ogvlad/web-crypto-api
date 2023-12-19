@@ -8,7 +8,7 @@ export async function step3_Decrypt(state: Partial<IState>, setState: SetStateFu
   
   try {
     const rsaWebCrypto = new WebCryptoRSA()
-    const decrypted = await rsaWebCrypto.decrypt(state.encryptedMessage, state.keyPair.privateKey)
+    const decrypted = await rsaWebCrypto.decrypt2(state.encryptedMessage, state.keyPair.privateKeyBase64)
     
     setState(prev => ({
       ...prev,

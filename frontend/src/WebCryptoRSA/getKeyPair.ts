@@ -1,7 +1,7 @@
 import { IRSAKeyPair } from "../types/IWebCryptoRSA"
 import { generateKeyPair } from "./generateKeyPair"
 import { exportPrivateKey } from "./exportPrivateKey"
-import { exportPublicKey } from "./exportPublicKey"
+import { exportPublicKey, exportPublicKeyXml } from "./exportPublicKey"
 
 export async function getKeyPair(passphrase: string, iterations: number): Promise<IRSAKeyPair> {
   
@@ -24,6 +24,7 @@ export async function getKeyPair(passphrase: string, iterations: number): Promis
     privateKeyBase64: await exportPrivateKey(keyPair),
     publicKey: keyPair.publicKey,
     publicKeyBase64: await exportPublicKey(keyPair),
+    publicKeyXml: await exportPublicKeyXml(keyPair),
     // publickKeyPem: await spkiToPem(keyPair.publicKey),
   }
 }

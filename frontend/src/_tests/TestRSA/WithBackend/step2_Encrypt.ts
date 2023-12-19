@@ -11,6 +11,7 @@ export async function step2_Encrypt(state: Partial<IState>, setState: SetStateFu
 
   const payload = {
     publicKeyBase64: state.keyPair.publicKeyBase64,
+    publicKeyXml: state.keyPair.publicKeyXml,
   }
   
   axios.post(url, payload)
