@@ -21,6 +21,7 @@ export class WebCryptoRSA implements IWebCryptoRSA {
     const bytes = await crypto.subtle.encrypt(
       {
         name: "RSA-OAEP",
+        //modif
       },
       publicKey,
       dataBuffer

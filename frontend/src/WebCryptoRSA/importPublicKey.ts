@@ -11,7 +11,10 @@ export function importPublicKey(publicKeyText: Base64String): Promise<CryptoKey>
     buffer,
     {
       name: "RSA-OAEP",
-      hash: "SHA-256",
+      //COMMENTS FROM SCD(RUPP):
+      // hash: "SHA-256",
+      //use only SHA-1 for OAEP mode
+        hash: "SHA-1",
     },
     true,
     ["encrypt"]

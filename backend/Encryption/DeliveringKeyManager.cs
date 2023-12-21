@@ -17,8 +17,15 @@ namespace SandboxAPI.Encryption
             using RSACryptoServiceProvider provider = new RSACryptoServiceProvider(RsaKeySize);
             provider.ImportSubjectPublicKeyInfo(publicKey, out _);
 
-            byte[] encryptedBytes = provider.Encrypt(data, true);
-            string encryptedText = Convert.ToBase64String(encryptedBytes);
+            //COMMENTS FROM SCD(RUPP): 
+            //SHA-1 is the default hash for RSA in .NET 
+            //for OAEP, SHA-1 padding must be specified explicitely
+            //using bool fOAEP does not work 
+           //byte[] encryptedBytes = provider.Encrypt(data, true);
+			byte[] encryptedBytes = provider.Encrypt(data, RSAEncryptionPadding.OaepSHA1);
+			
+
+			string encryptedText = Convert.ToBase64String(encryptedBytes);
             return new DeliveringKeyModel
             {
                 EncryptedMessage = encryptedText,
@@ -29,6 +36,10 @@ namespace SandboxAPI.Encryption
         public static DeliveringKeyModel GetEncryptedKey_XML(Request request)
         {
             var data = Encoding.UTF8.GetBytes(TextToEncrypt);
+
+            //modif
+            
+
 
             using RSACryptoServiceProvider provider = new RSACryptoServiceProvider(RsaKeySize);
             provider.FromXmlString(request.publicKeyXml);
