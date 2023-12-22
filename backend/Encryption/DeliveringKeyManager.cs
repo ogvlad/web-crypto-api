@@ -43,7 +43,7 @@ namespace SandboxAPI.Encryption
 
             using RSACryptoServiceProvider provider = new RSACryptoServiceProvider(RsaKeySize);
             provider.FromXmlString(request.publicKeyXml);
-            var encryptedBytes = provider.Encrypt(data, true);
+            var encryptedBytes = provider.Encrypt(data, RSAEncryptionPadding.OaepSHA1);
             string encryptedText = Convert.ToBase64String(encryptedBytes);
 
             return new DeliveringKeyModel

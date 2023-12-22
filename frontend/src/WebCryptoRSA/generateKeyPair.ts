@@ -5,8 +5,6 @@ const MODULUS_LENGTH = 2048
 export const PUBLIC_EXPONENT_1 = new Uint8Array([0x01, 0x00, 0x01]) // 65537 // AQAB
 
 export function generateKeyPair() {
-    alert('creating keypair');
-
   return window.crypto.subtle.generateKey(
     {
       name: "RSA-OAEP",
