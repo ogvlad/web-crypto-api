@@ -1,7 +1,7 @@
 import { toBase64 } from "../utils/toBase64"
 import { fromBase64 } from "../utils/fromBase64"
 
-const MODULUS_LENGTH = 2048
+const MODULUS_LENGTH = 4096
 export const PUBLIC_EXPONENT_1 = new Uint8Array([0x01, 0x00, 0x01]) // 65537 // AQAB
 
 export function generateKeyPair() {

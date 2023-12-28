@@ -21,7 +21,7 @@ import { TypeSwitch } from "./TypeSwitch"
 
 export const TestRSA_WithBackend = () => {
   
-  const [state, setState] = React.useState<Partial<IState>>({ type: "xml" })
+  const [state, setState] = React.useState<Partial<IState>>({ type: "binary" })
   
   useEffect(() => {
     step1_GenerateKeyPair(state, setState)
