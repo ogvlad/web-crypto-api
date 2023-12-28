@@ -1,4 +1,4 @@
-import { IAESSecret, IWebCryptoAES } from "./types/IWebCryptoAES"
+import { IAESSecret, IWebCryptoAES } from "../types/IWebCryptoAES"
 
 export class WebCryptoAES implements IWebCryptoAES {
   async generate(): Promise<IAESSecret> {
