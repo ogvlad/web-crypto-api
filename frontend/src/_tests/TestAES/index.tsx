@@ -45,7 +45,7 @@ export const TestAES = () => {
   
   return (
     <>
-      <h1>Test RSA Process</h1>
+      <h1>Test AES Process</h1>
       <Box>
         <Button onClick={() => {setState({})}}>Regenerate</Button>
       </Box>
