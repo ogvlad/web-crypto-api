@@ -1,4 +1,4 @@
-export async function generateAESSecret() {
+export async function generateSecret() {
   try {
     const aesKey = await crypto.subtle.generateKey(
       {

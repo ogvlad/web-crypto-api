@@ -1,13 +1,13 @@
 import { IAESSecret, IWebCryptoAES } from "../types/IWebCryptoAES"
 import { Base64String } from "../types/Base64String"
-import { generateAESSecret } from "./generateAESSecret"
+import { generateSecret } from "./generateSecret"
 import { importKey } from "./importKey"
 import { fromBase64 } from "../utils/fromBase64"
 import { toBase64 } from "../utils/toBase64"
 
 export class WebCryptoAES implements IWebCryptoAES {
   async generate(): Promise<IAESSecret> {
-    const secret = await generateAESSecret()
+    const secret = await generateSecret()
     return { key: secret.key, iv: secret.iv }
   }
   
