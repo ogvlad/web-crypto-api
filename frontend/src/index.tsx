@@ -16,6 +16,7 @@ import { TestRSA_Single } from "./_tests/TestRSA/Single"
 import { TestRSA_WithBackend } from "./_tests/TestRSA/WithBackend"
 import { TestRSA_ManualEncryption } from "./_tests/TestRSA/ManualEncryption"
 import { TestRSA_ManualDecryption } from "./_tests/TestRSA/ManualDecryption"
+import { TestRSA_OnlyBackend } from "./_tests/TestRSA/OnlyBackend"
 
 const routes = [
   {
@@ -49,6 +50,10 @@ const routes = [
       {
         path: "rsa-backend",
         element: <TestRSA_WithBackend />
+      },
+      {
+        path: "rsa-backend-only",
+        element: <TestRSA_OnlyBackend />
       },
     ]
   }
